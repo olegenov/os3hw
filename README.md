@@ -62,3 +62,51 @@ typedef struct {
 ![serverTest](./images/serverTest1.png "Server")
 * Clients
 ![clientTest](./images/clientTest1.png "Clients")
+
+### Реализация на оценку 6-7
+#### Компиляция
+* Сервер
+```
+gcc Server.c DieWithError.c PrintMessage.c SendMessage.c HandleClient.c AcceptConnection.c CreateServerSocket.c -o Server  
+```
+* Клиенты
+```
+gcc Client.c DieWithError.c PrintMessage.c SendMessage.c -o Client
+```
+* Наблюдатель
+```
+gcc Viewer.c DieWithError.c PrintMessage.c SendMessage.c -o Viewer
+```
+или
+* Сервер
+```
+bash ./CompileServer.sh
+```
+* Клиенты
+```
+bash ./CompileClient.sh
+```
+* Наблюдатель
+```
+bash ./CompileViewer.sh
+```
+#### Запуск
+```
+./Viewer <ip> <port>
+```
+#### Сценарий
+
+В дополнение к предыдущей задаче был разработан модуль для извлечения логов с сервера (Viewer).
+
+Для визуализации логов была написана карта.
+
+Описание клеток поля:
+```
+grid[i][j] = 8 – игроки i и j ещё не играли.
+grid[i][j] = 2 – победил i.
+grid[i][j] = 1 – ничья.
+grid[i][j] = 0 – победил j.
+```
+#### Результаты работы программы
+* Viewer
+![viewerTest](./images/viewerTest1.png "Viewer")
